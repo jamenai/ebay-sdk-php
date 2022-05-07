@@ -188,6 +188,10 @@ class OAuthService
             'scope'         => implode(' ', $params['scope'])
 
         ];
+        
+        if (array_key_exists('prompt', $params)) {
+            $urlParams['prompt'] = $params['prompt'];
+        }
 
         return $url.http_build_query($urlParams, null, '&', PHP_QUERY_RFC3986);
     }
